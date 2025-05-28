@@ -4,44 +4,37 @@
 
 ## Overview of the Analysis
 
-The purpose of this analysis was to create a binary classifier using deep learning techniques to predict whether applicants funded by Alphabet Soup will be successful in their ventures. Using machine learning and neural networks, I analyzed a dataset of more than 34,000 organizations that have received funding from Alphabet Soup over the years. The goal was to create a predictive model that could help the foundation select applicants with the best chance of success, ultimately optimizing their funding decisions and maximizing the impact of their charitable contributions.
+The purpose of this analysis was to create a resource for nonprofits to use to aid in the expectation of whether applicants funded by Alphabet Soup will be successful in their ventures. I fed the model historical data of more than 34,000 organizations that have received funding from Alphabet Soup in the past to predict future outcomes by adjusting it's architecture and parameters to improve the predictive accuracy of the model. 
 
-## Results
-
+## Results:
 ### Data Preprocessing
 
 • **Target Variable:**
-  - `IS_SUCCESSFUL` - This binary variable indicates whether the funding was used effectively (1 for successful, 0 for unsuccessful)
+  - `IS_SUCCESSFUL` - This binary variable was targeted because of it's desired outcome of the model (1 for successful, 0 for unsuccessful)
 
 • **Feature Variables:**
-  - `APPLICATION_TYPE` - Alphabet Soup application type (after binning rare categories as "Other")
-  - `AFFILIATION` - Affiliated sector of industry
-  - `CLASSIFICATION` - Government organization classification (after binning rare categories as "Other")
-  - `USE_CASE` - Use case for funding
-  - `ORGANIZATION` - Organization type
-  - `STATUS` - Active status
-  - `INCOME_AMT` - Income classification
-  - `SPECIAL_CONSIDERATIONS` - Special considerations for application
-  - `ASK_AMT` - Funding amount requested
+  - `APPLICATION_TYPE` 
+  - `AFFILIATION` 
+  - `CLASSIFICATION` 
+  - `USE_CASE` 
+  - `ORGANIZATION` 
+  - `STATUS` 
+  - `INCOME_AMT` 
+  - `SPECIAL_CONSIDERATIONS` 
+  - `ASK_AMT` 
 
-• **Variables Removed:**
-  - `EIN` - Employer Identification Number (unique identifier, not predictive)
-  - `NAME` - Organization name (unique identifier, not predictive)
+• **Variables Removed:** Removed to reduce noise in model as they are unique values, not characteristics of predictability
+  - `EIN` - Employer Identification Number (not predictive)
+  - `NAME` - Organization name (not predictive)
 
 ### Compiling, Training, and Evaluating the Model
 
 • **Base Model Architecture:**
   - **Input Layer:** 43 features (after preprocessing and one-hot encoding)
-  - **First Hidden Layer:** 80 neurons with ReLU activation
-  - **Second Hidden Layer:** 30 neurons with ReLU activation
+  - **First Hidden Layer:** 80 neurons with ReLU activation (Almost double the amount of the input features)
+  - **Second Hidden Layer:** 30 neurons with ReLU activation (Smaller second layer to create a funnel effect)
   - **Output Layer:** 1 neuron with sigmoid activation (for binary classification)
-  - **Total Parameters:** Approximately 4,000+ trainable parameters
-
-• **Rationale for Architecture:**
-  - Used ReLU activation for hidden layers to prevent vanishing gradient problem
-  - Sigmoid activation for output layer appropriate for binary classification
-  - Started with roughly 2x the input features for first layer (common rule of thumb)
-  - Second layer with fewer neurons to create a funnel effect
+  - **The Why:** A control group with a healthy number of neurons was needed before assessing the model for changes. ReLU is the best activation to use for the first and second hidden layers as we were building the model off an "if" statement that required minimal computational power. Sigmoid is best for the output layer as the model needs to provide a "yes" or "no" answer keeping it simplististic and minimizing the oppurtunity to over saturate our model.  
 
 • **Target Performance Achievement:**
   - **Target:** 75% accuracy
@@ -64,7 +57,7 @@ The purpose of this analysis was to create a binary classifier using deep learni
   **Attempt 3 - Architecture and Hyperparameter Changes:**
   - Doubled neuron amounts
   - Added custom learning rate of 0.001
-  - Changed activation function to tanh
+  - Changed activation functions of layer 1 and 2 to tanh
   - **Result:** 72.87% accuracy (0.11% improvement from base model)
   - **Analysis:** tanh activation and lower learning rate provided modest improvement
 
@@ -79,25 +72,16 @@ The deep learning model achieved a maximum accuracy of 73.19%, falling short of 
 
 **Recommendation for Alternative Approach:**
 
-I recommend implementing a **Random Forest Classifier** or **Gradient Boosting Machine (XGBoost)** for this classification problem for the following reasons:
+I recommend using **Random Forest** for this classification problem for the following reasons:
 
-1. **Feature Importance:** Tree-based models provide clear feature importance rankings, helping Alphabet Soup understand which factors most influence funding success
+1. **Feature Importance:** Tree-based models, like Random Forest, provide clear feature importance rankings. Weight is placed more on the desired feature thus prioritizing modeling that outcome.
 
-2. **Handling Mixed Data Types:** These models naturally handle the mix of categorical and numerical features without extensive preprocessing
+2. **Robustness:** Less prone to overfitting and more interpretable than deep neural networks
 
-3. **Robustness:** Less prone to overfitting and more interpretable than deep neural networks
+3. **Performance:** Often achieve comparable or better performance on tabular data like this dataset
 
-4. **Performance:** Often achieve comparable or better performance on tabular data like this dataset
+4. **Efficiency:** Faster training and prediction times, making them more practical for operational use
 
-5. **Efficiency:** Faster training and prediction times, making them more practical for operational use
-
-**Implementation Strategy:**
-- Start with Random Forest to establish baseline performance and identify key features
-- Use feature importance insights to guide further feature engineering
-- Implement XGBoost with hyperparameter tuning for potentially higher accuracy
-- Consider ensemble methods combining multiple algorithms for optimal performance
-
-This alternative approach would likely provide better interpretability for business decisions while potentially achieving the target 75% accuracy through more appropriate algorithm selection for this tabular dataset.
-
+The nature of this data set is tabular in style. This alternative approach would likely provide better interpretability for business decisions while potentially achieving the target accuracy of 75% or more through more as it is more appropriate for data sets of this style.
 
 Heavy and deep use of the Class AI and Claude AI for troubleshooting. We did not learn how to convert h5 files to images and that is worth 2 points of the grade and I aim to graduate this course with a 100%. I will continue to try and upload the final version when it is ready. 
