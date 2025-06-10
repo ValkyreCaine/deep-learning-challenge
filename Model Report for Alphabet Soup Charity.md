@@ -1,6 +1,5 @@
 # Neural Network Model Report for Alphabet Soup
 
-# Neural Network Model Report for Alphabet Soup
 
 ## Overview of the Analysis
 
