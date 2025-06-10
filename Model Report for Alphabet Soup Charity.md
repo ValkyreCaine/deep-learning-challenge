@@ -1,5 +1,7 @@
 # Neural Network Model Report for Alphabet Soup
 
+# Neural Network Model Report for Alphabet Soup
+
 ## Overview of the Analysis
 
 The purpose of this analysis was to create a resource for nonprofits to use to aid in the expectation of whether applicants funded by Alphabet Soup will be successful in their ventures. I fed the model historical data of more than 34,000 organizations that have received funding from Alphabet Soup in the past to predict future outcomes by adjusting it's architecture and parameters to improve the predictive accuracy of the model. 
@@ -37,33 +39,34 @@ The purpose of this analysis was to create a resource for nonprofits to use to a
 • **Target Performance Achievement:**
   - **Target:** 75% accuracy
   - **Result:** Did not achieve target performance
-  - **Best Performance:** 73.19% accuracy (Attempt 2)
+  - **Best Performance:** 72.99% accuracy (Attempt 1 and 2)
 
 • **Optimization Attempts:**
 
   **Attempt 1 - Reduced Neurons:**
   - Reduced neurons in hidden layers
-  - **Result:** 72.52% accuracy (0.24% decrease from base model)
+  - **Result:** 72.99% accuracy (0.14% increase from base model)
   - **Analysis:** Reducing model capacity hurt performance
 
   **Attempt 2 - Increased Capacity and Training:**
   - Doubled neurons in both hidden layers
   - Increased epochs from 100 to 200
-  - **Result:** 73.19% accuracy (0.43% improvement from base model)
+  - **Result:** 72.99% accuracy (0.14% increase from base model)
   - **Analysis:** More capacity and training time improved performance
 
   **Attempt 3 - Architecture and Hyperparameter Changes:**
   - Doubled neuron amounts
   - Added custom learning rate of 0.001
   - Changed activation functions of layer 1 and 2 to tanh
-  - **Result:** 72.87% accuracy (0.11% improvement from base model)
+  - **Result:** 72.62% accuracy (0.23% reduction from base model)
   - **Analysis:** tanh activation and lower learning rate provided modest improvement
 
-![image](https://github.com/user-attachments/assets/f87997ce-6663-4653-936a-844bbcf9f441)
+![image](https://github.com/user-attachments/assets/11589289-8573-4e5a-8143-f54ab88ab2dc)
+
 
 ## Summary
 
-The deep learning model achieved a maximum accuracy of 73.19%, falling short of the 75% target by approximately 1.8 percentage points. While the model demonstrates reasonable predictive capability, there is room for improvement in identifying successful funding applicants.
+The deep learning model achieved a maximum accuracy of 72.99%, falling short of the 75% target by approximately 2.01 percentage points. While the model demonstrates reasonable predictive capability, there is room for improvement in identifying successful funding applicants.
 
 **Key Findings:**
 - Increasing model capacity (more neurons) and training time yielded the best results
