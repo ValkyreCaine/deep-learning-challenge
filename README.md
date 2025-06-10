@@ -61,6 +61,8 @@ The purpose of this analysis was to create a resource for nonprofits to use to a
   - **Result:** 72.87% accuracy (0.11% improvement from base model)
   - **Analysis:** tanh activation and lower learning rate provided modest improvement
 
+![image](https://github.com/user-attachments/assets/43f496da-9bf2-49dc-ae81-3f3b85c9456f)
+
 ## Summary
 
 The deep learning model achieved a maximum accuracy of 73.19%, falling short of the 75% target by approximately 1.8 percentage points. While the model demonstrates reasonable predictive capability, there is room for improvement in identifying successful funding applicants.
